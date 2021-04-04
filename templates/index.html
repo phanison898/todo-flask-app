@@ -7,7 +7,28 @@
 
 <!--Body section-->
 {% block body %}
-<div>
-  <h1>Hello World</h1>
+<div class="container">
+  <h1>My Todo List</h1>
+  <table class="todo-table">
+    <tr>
+      <th>Task</th>
+      <th>Date</th>
+      <th>Actionspytho</th>
+    </tr>
+    {% for task in tasks %}
+        <tr>
+            <td>{{ task.task_name }}</td>
+            <td>{{ task.date_created.date() }}</td>
+            <td>
+                <a href="">Update</a>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+  </table>
+  <form class="task-form" action="/" method="POST">
+    <input type="text" name="task-input" id="task-input" />
+    <button>Submit</button>
+  </form>
 </div>
 {% endblock %}
